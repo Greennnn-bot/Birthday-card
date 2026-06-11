@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>給小貓的生日信</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500&family=Caveat:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: #c8dff0;
+      background-image:
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,0.25) 0%, transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(180,210,240,0.3) 0%, transparent 40%);
+      font-family: 'Noto Sans TC', sans-serif;
+      color: #2c3e50;
+      min-height: 100vh;
+      padding: 48px 20px 80px;
+    }
+
+    body::before {
+      content: '✦  ✧  ✦  ✧  ✦';
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 6px;
+      pointer-events: none;
+    }
+
+    .page-title {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .page-title h1 {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 2rem;
+      font-weight: 500;
+      color: #2c3e50;
+      letter-spacing: 0.15em;
+    }
+
+    .page-title .heart {
+      font-size: 1rem;
+      color: #e87a7a;
+      vertical-align: super;
+    }
+
+    .page-title .sub {
+      font-family: 'Caveat', cursive;
+      font-size: 1.4rem;
+      color: #5b9bd5;
+      margin-top: 4px;
+      letter-spacing: 0.05em;
+    }
+
+    .page-title .year {
+      font-size: 0.88rem;
+      color: #7aabcc;
+      margin-top: 2px;
+      letter-spacing: 0.12em;
+    }
+
+    .card {
+      max-width: 640px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(8px);
+      border: 2px solid rgba(255,255,255,0.9);
+      border-radius: 20px;
+      padding: 44px 44px 52px;
+      box-shadow:
+        0 4px 16px rgba(100,160,210,0.15),
+        0 16px 48px rgba(100,160,210,0.1);
+      position: relative;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 20px; right: 20px;
+      height: 4px;
+      background: linear-gradient(90deg, #5b9bd5, #a8d0f0, #5b9bd5);
+      border-radius: 0 0 4px 4px;
+      opacity: 0.6;
+    }
+
+    .sticker-row {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      font-size: 1.6rem;
+      margin-bottom: 28px;
+    }
+
+    .greeting {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #5b9bd5;
+      letter-spacing: 0.06em;
+      margin-bottom: 6px;
+    }
+
+    .big-wish {
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: #2c3e50;
+      letter-spacing: 0.08em;
+      margin-bottom: 32px;
+    }
+
+    .section {
+      margin-bottom: 20px;
+    }
+
+    .section-inner {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .section-dot {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      background: #5b9bd5;
+      border-radius: 50%;
+      opacity: 0.7;
+      flex-shrink: 0;
+      margin-top: 10px;
+    }
+
+    .para {
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 2;
+      color: #3a4a5a;
+      letter-spacing: 0.02em;
+    }
+
+    .highlight { color: #5b9bd5; font-weight: 500; }
+    .pink { color: #e87a7a; font-weight: 500; }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 24px 0;
+      color: rgba(91,155,213,0.4);
+      font-size: 0.75rem;
+      letter-spacing: 4px;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(91,155,213,0.3), transparent);
+    }
+
+    .sign-off {
+      margin-top: 40px;
+      text-align: right;
+    }
+
+    .sign-label {
+      font-size: 0.88rem;
+      color: #7aabcc;
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+
+    .sign-name {
+      font-family: 'Caveat', cursive;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #5b9bd5;
+    }
+
+    .bottom-stickers {
+      text-align: center;
+      margin-top: 28px;
+      font-size: 1.4rem;
+      letter-spacing: 6px;
+      opacity: 0.7;
+    }
+
+    @media (max-width: 580px) {
+      .card { padding: 28px 20px 36px; }
+      .big-wish { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-title">
+    <h1>給我的小貓 <span class="heart">♡</span></h1>
+    <div class="sub">Happy Birthday</div>
+    <div class="year">2026 · 交往第 4 年的生日</div>
+  </div>
+
+  <div class="card">
+
+    <div class="sticker-row">🐮 🍞 🐄 🧈 🐮</div>
+
+    <p class="greeting">親愛的小貓，</p>
+    <p class="big-wish">生日快樂 🎂</p>
+
+    <div class="section">
+      <div class="section-inner">
+        <span class="section-dot"></span>
+        <p class="para">很開心今年還能陪妳一起過生日。交往四年了，時間過得很快，可能是因為每天都很開心吧 😋😋</p>
+      </div>
+    </div>
+
+    <div class="divider">✦</div>
+
+    <div class="section">
+      <div class="section-inner">
+        <span class="section-dot"></span>
+        <p class="para">每次你問我以前的故事其實我都會有點小害羞，因為當初我都覺得我可能<span class="highlight">配不上你</span>，我就是一個小小宅男蟲。</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-inner">
+        <span class="section-dot"></span>
+        <p class="para">這段時間我們一起做了好多好多事——<span class="highlight">一起出了國、一起去旅行、一起泡溫泉</span>。你都問我最喜歡什麼時候，其實我只要跟你待在一起都覺得老幸福了。睡覺一起抱抱，睡醒我要上班看你睡飽飽的時候也很開心。</p>
+      </div>
+    </div>
+
+    <div class="divider">✦</div>
+
+    <div class="section">
+      <div class="section-inner">
+        <span class="section-dot"></span>
+        <p class="para">雖然妳都會到處欺負我，有時候還會挑我的小毛病，但是妳都對我很好，都會支持我做我想做的事情，陪我去想去的地方，還會買小東西給我驚喜。</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-inner">
+        <span class="section-dot"></span>
+        <p class="para">很謝謝妳每次都在我的身邊給我力量，不論是當兵、生病，或是我想換工作妳都會說你支持我。妳都會說我很聰明，每次聽到我都會想：我真的有那麼厲害嗎？讓我好想抱抱妳，跟你說我真的很感謝妳。</p>
+      </div>
+    </div>
+
+    <div class="divider">✦</div>
+
+    <div class="section">
+      <div class="section-inner">
+        <span class="section-dot"></span>
+        <p class="para">希望未來我們一起做更多事，去除了日韓之外的國家，一起去好多地方拍好多照片，也可以跟爸爸媽媽一起出去，一起開小車去好多地方。<span class="highlight">只要有妳在的回憶都變得甜甜的</span> 嘿嘿，希望未來能繼續跟你天天大開心 🥰</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-inner">
+        <span class="section-dot"></span>
+        <p class="para">恭喜我的小貓又長大了一歲，希望今年的妳<span class="highlight">健健康康平平安安</span>，今年都能買到想買的東西，去想看的演唱會，還能一起買到便宜機票，我們再一起留下今年專屬的回憶。</p>
+      </div>
+    </div>
+
+    <p class="para" style="text-align:center; margin-top:16px; font-size:1.05rem;">
+      <span class="pink">我愛妳哦 🥰</span>
+    </p>
+
+    <div class="sign-off">
+      <div class="sign-label">愛你的</div>
+      <div class="sign-name">寶蟲 🐛</div>
+    </div>
+
+  </div>
+
+  <div class="bottom-stickers">🐮 ✦ 🍞 ✦ 🐄</div>
+
+</body>
+</html>
